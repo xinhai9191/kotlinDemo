@@ -1,0 +1,38 @@
+dependencies {
+    jooqRuntime("mysql:mysql-connector-java")
+}
+
+jooq {
+    version = '3.13.1'
+    edition = 'OSS'
+    generateSchemaSourceOnCompilation = false
+
+    db(sourceSets.main) {
+        jdbc {
+            driver = 'com.mysql.cj.jdbc.Driver'
+            url = 'jdbc:mysql://localhost/db_example?serverTimezone=Asia/Shanghai'
+            user = 'root'
+            password = '123456'
+        }
+        generator {
+            name = 'org.jooq.codegen.DefaultGenerator'
+            strategy {
+                name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+            }
+            database {
+                name = 'org.jooq.meta.mysql.MySQLDatabase'
+            }
+            generate {
+                relations = true
+                deprecated = false
+                records = true
+                immutablePojos = false
+                fluentSetters = true
+            }
+            target {
+                packageName = 'com.demo.db'
+            }
+        }
+    }
+}
+

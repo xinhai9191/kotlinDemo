@@ -7,6 +7,3 @@
    关闭命令后 再找回 tmux attach
 3、netstat -tulp
 4、JDBCTemplate https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#jdbc
-
-
-
